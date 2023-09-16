@@ -1,0 +1,34 @@
+.sidebar {
+    position: absolute;
+    top: 88px;
+    left: -400px;
+    height: 890px;
+    width: 400px;
+    transition: left 0.3s ease-in-out;
+    background-color: #fff;
+    border: 1px solid #332727;
+  }
+  .sidebar-toggle {
+    position: absolute;
+    top: 0;
+    right: -60px;
+    height: 60px;
+    width: 60px;
+    z-index: 1;
+  }
+  /* .content {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    transition: left 0.3s ease-in-out;
+    background-color: lightgray;
+  } */
+  .sidebar.open {
+    left: 0;
+  }
+  /* .content.open {
+    left: 475px;
+  }
+   */

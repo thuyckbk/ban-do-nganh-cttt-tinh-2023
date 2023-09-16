@@ -1,0 +1,28 @@
+.detail-bottom {
+  display: block;
+    position: absolute;
+    bottom: 0;
+    height: 40%;
+    width: 100%;
+    transition: bottom 0.3s ease-in-out;
+    background-color: lightgray;
+    border: 1px solid #5f0d0d;
+
+  }
+  .bottom-toggle {
+    position: absolute;
+    left: 0;
+    top: -60px;
+    height: 60px;
+    width: 60px;
+    z-index: 1;
+  }
+
+  .detail-bottom.detail-bottom-open {
+    display: block;
+  }
+  .detail-bottom.detail-bottom-close {
+    display: none;
+  }
+
+  
