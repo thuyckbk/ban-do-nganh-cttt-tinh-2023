@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faTable, faChevronDown, faPrint, faFileExcel, faShareNodes, faBookmark } from '@fortawesome/free-solid-svg-icons'
-  // import axios from '../../../config/axios';
-  import './SideBarContent.css'
+import { faMagnifyingGlass, faTable, faChevronDown, faPrint, faFileExcel, faShareNodes, faBookmark, faChevronRight,  } from '@fortawesome/free-solid-svg-icons'
+import AttributeTab from './AttributeTab';
+import './SideBarContent.css'
 
 const SideBarContent = (props) => {
 
   const [toggleState, setToggleState] = useState(1);
-    // const [tableContents, setTableContents] = useState([]);
+  const [toggleTableChild, setToggleTableChild] = useState(false);
+
+  const tableChild = () => {
+    setToggleTableChild(!toggleTableChild)
+  }
+
+  // const [tableContents, setTableContents] = useState([]);
 
   const toggleTag = (index) => {
     setToggleState(index);
@@ -16,59 +22,121 @@ const SideBarContent = (props) => {
     line[0].style.width = tabActive.offsetWidth + 'px';
     line[0].style.left = tabActive.offsetLeft + 'px';
   }
+  const listItemGroup_1 = ["Cột angten", "Trạm BTS", "Điểm dịch vụ viễn thông", "Doanh nghiệp viễn thông"];
+  const listItemGroup_2 = ["Cột angten", "Trạm BTS", "Điểm dịch vụ viễn thông", "Doanh nghiệp viễn thông"];
+  const listItemGroup_3 = ["Cột angten", "Trạm BTS", "Điểm dịch vụ viễn thông", "Doanh nghiệp viễn thông"];
+  const listItemGroup_4 = ["Cột angten", "Trạm BTS", "Điểm dịch vụ viễn thông", "Doanh nghiệp viễn thông"];
+  const listItemGroup_5 = ["Cột angten", "Trạm BTS", "Điểm dịch vụ viễn thông", "Doanh nghiệp viễn thông"];
+  const listItemGroup_6 = ["Cột angten", "Trạm BTS", "Điểm dịch vụ viễn thông", "Doanh nghiệp viễn thông"];
 
+  const listItemGroup1_child = listItemGroup_1.map((list, index) => {
+    return (
+      <tr key={index}>
+        <td><input type='checkbox' /> <span>{list}</span></td>
+        <td>
+          <button type="button" className={props.isDTBottomOpen ? "btn btn-outline-primary btn-sm btn-bottom-active" : "btn btn-outline-primary btn-sm"}
+            onClick={props.DTBottomOpen}
+          >
+            <FontAwesomeIcon icon={faTable} />
+          </button>
+          <button type="button" className="btn btn-outline-primary btn-sm m-1 " onClick={() => toggleTag(2)}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </td>
+      </tr>
+    )
 
-// const itemAttribute = (e) =>{
-//     axios
-//         .get("cotangten")
-//         .then((res) => {
-//             setTableContents(res.data)
-//         })
-//         .catch(err => {
-//             throw err;
-//         })
-//         const clickedId = e.target.id;
-//     const tbs = tableContents.map((props, index) => {
-//         if (e==props)
-//         return (
-//             <tr id={index} key={index} >
-//                 <td>{index+1}</td>
+  })
+  const listItemGroup2_child = listItemGroup_2.map((list, index) => {
+    return (
+      <tr key={index}>
+        <td><input type='checkbox' /> <span>{list}</span></td>
+        <td>
+          <button type="button" className={props.isDTBottomOpen ? "btn btn-outline-primary btn-sm btn-bottom-active" : "btn btn-outline-primary btn-sm"}
+            onClick={props.DTBottomOpen}
+          >
+            <FontAwesomeIcon icon={faTable} />
+          </button>
+          <button type="button" className="btn btn-outline-primary btn-sm m-1">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </td>
+      </tr>
+    )
 
-//                 <td>{props.tendoituong}</td>
-//                 <td>{props.tendoituong}</td>
-//                 <td>{props.diachi}</td>
-//                 <td>{props.kinhdo}</td>
-//                 <td>{props.vido}</td>
-//                 <td>{props.donviquanly}</td>
-//                 <td>{props.chusohuucot}</td>
-//                 <td>{props.tenquanhuyen}</td>
-//                 <td>{props.loaicot}</td>
-//                 <td>{props.kieucot}</td>
-//                 <td>{props.chieucao}</td>
-//                 <td>{props.chieucaoct}</td>
-//                 <td>{props.khanangdungchung}</td>
-//                 <td>{props.doanhnghiepdungchung}</td>
-//                 <td>{props.ngayhoatdong}</td>
-//                 <td>{props.sogiaychungnhankiemdinh}</td>
-//                 <td>{props.diachigiaycnkiemdinh}</td>
-//                 <td>{props.chungloaithietbiphat}</td>
-//                 <td>{props.soantenphat}</td>
-//                 <td>{props.somayphat}</td>
-//                 <td>{props.tongcongsuatphattunganten}</td>
-//                 <td>{props.bangtanhoatdong}</td>
-//                 <td>{props.docaotunganten}</td>
-//                 <td>{props.gioihanantoan}</td>
-//                 <td>{props.chenhlechdocao}</td>
-//                 <td>{props.ngaycapgiaychungnhan}</td>
-//                 <td>{props.cogiatriden}</td>
-//                 <td>{props.tinhtranggcn}</td>
-//                 <td>{props.tailieu}</td>
+  })
+  const listItemGroup3_child = listItemGroup_3.map((list, index) => {
+    return (
+      <tr key={index}>
+        <td><input type='checkbox' /> <span>{list}</span></td>
+        <td>
+          <button type="button" className={props.isDTBottomOpen ? "btn btn-outline-primary btn-sm btn-bottom-active" : "btn btn-outline-primary btn-sm"}
+            onClick={props.DTBottomOpen}
+          >
+            <FontAwesomeIcon icon={faTable} />
+          </button>
+          <button type="button" className="btn btn-outline-primary btn-sm m-1">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </td>
+      </tr>
+    )
 
-//             </tr>
-//         )
-//     })
+  })
+  const listItemGroup4_child = listItemGroup_4.map((list, index) => {
+    return (
+      <tr key={index}>
+        <td><input type='checkbox' /> <span>{list}</span></td>
+        <td>
+          <button type="button" className={props.isDTBottomOpen ? "btn btn-outline-primary btn-sm btn-bottom-active" : "btn btn-outline-primary btn-sm"}
+            onClick={props.DTBottomOpen}
+          >
+            <FontAwesomeIcon icon={faTable} />
+          </button>
+          <button type="button" className="btn btn-outline-primary btn-sm m-1">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </td>
+      </tr>
+    )
 
-// }
+  })
+  const listItemGroup5_child = listItemGroup_5.map((list, index) => {
+    return (
+      <tr key={index}>
+        <td><input type='checkbox' /> <span>{list}</span></td>
+        <td>
+          <button type="button" className={props.isDTBottomOpen ? "btn btn-outline-primary btn-sm btn-bottom-active" : "btn btn-outline-primary btn-sm"}
+            onClick={props.DTBottomOpen}
+          >
+            <FontAwesomeIcon icon={faTable} />
+          </button>
+          <button type="button" className="btn btn-outline-primary btn-sm m-1">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </td>
+      </tr>
+    )
+
+  })
+  const listItemGroup6_child = listItemGroup_6.map((list, index) => {
+    return (
+      <tr key={index}>
+        <td><input type='checkbox' /> <span>{list}</span></td>
+        <td>
+          <button type="button" className={props.isDTBottomOpen ? "btn btn-outline-primary btn-sm btn-bottom-active" : "btn btn-outline-primary btn-sm"}
+            onClick={props.DTBottomOpen}
+          >
+            <FontAwesomeIcon icon={faTable} />
+          </button>
+          <button type="button" className="btn btn-outline-primary btn-sm m-1">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </td>
+      </tr>
+    )
+
+  })
   return (
     <div>
       <div className="tabs">
@@ -97,367 +165,105 @@ const SideBarContent = (props) => {
           <ul className="list-group">
             <li className="list-group-item">
               <div className='item-list'>
-                <FontAwesomeIcon icon={faChevronDown} />
+                <button type="button" className="btn btn-outline-info" onClick={tableChild}>
+                  {toggleTableChild
+                   ? <FontAwesomeIcon icon={faChevronRight} />
+                   : <FontAwesomeIcon icon={faChevronDown} />}
+                </button>
                 <input className="form-check-input m-2" type="checkbox" value="" id="firstCheckbox" />
                 <label className="form-check-label m-1" htmlFor="firstCheckbox">
                   <span>Hiện trạng hạ tầng viễn thông</span></label>
               </div>
+              <div>
+              <table className={toggleTableChild ? "table table-striped text-left table-list  " : "table table-striped text-left table-list-open "}>
+                <tbody>
+                  {listItemGroup1_child}
+                </tbody>
+              </table>
+              </div>
+            </li>
+            <li className="list-group-item">
+              <div className='item-list'>
+              <button type="button" className="btn btn-outline-info" onClick={tableChild}>
+                  {toggleTableChild
+                   ? <FontAwesomeIcon icon={faChevronRight} />
+                   : <FontAwesomeIcon icon={faChevronDown} />}
+                </button>
+                <input className="form-check-input m-2" type="checkbox" value="" id="firstCheckbox" />
+                <label className="form-check-label m-1" htmlFor="firstCheckbox">
+                  <span>Tuyến cáp</span></label>
+              </div>
               <table className="table table-striped text-left table-list">
                 <tbody>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Cột ăng ten</span></td>
-                    <td>
-                      <button type="button" className={props.isDTBottomOpen ? "btn btn-outline-primary btn-sm btn-bottom-active" : "btn btn-outline-primary btn-sm" }
-                        onClick={props.DTBottomOpen}
-                      >
-                        <FontAwesomeIcon icon={faTable} />
-                      </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Trạm BTS</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.DTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Điểm dịch vụ viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.DTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Doanh nghiệp viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
+                  {listItemGroup2_child}
                 </tbody>
               </table>
             </li>
             <li className="list-group-item">
               <div className='item-list'>
-                <FontAwesomeIcon icon={faChevronDown} />
+              <button type="button" className="btn btn-outline-info" onClick={tableChild}>
+                  {toggleTableChild
+                   ? <FontAwesomeIcon icon={faChevronRight} />
+                   : <FontAwesomeIcon icon={faChevronDown} />}
+                </button>
                 <input className="form-check-input m-2" type="checkbox" value="" id="firstCheckbox" />
                 <label className="form-check-label m-1" htmlFor="firstCheckbox">
-                  <span>Hiện trạng hạ tầng viễn thông</span></label>
+                  <span>Hạ tầng bưu chính</span></label>
               </div>
               <table className="table table-striped text-left table-list">
                 <tbody>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Cột ăng ten</span></td>
-                    <td>
-                      <button type="button" className="btn btn-outline-primary btn-sm"
-                        onClick={props.isDTBottomOpen}
-                      >
-                        <FontAwesomeIcon icon={faTable} />
-                      </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Trạm BTS</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Điểm dịch vụ viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Doanh nghiệp viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
+                  {listItemGroup3_child}
                 </tbody>
               </table>
             </li>
             <li className="list-group-item">
               <div className='item-list'>
-                <FontAwesomeIcon icon={faChevronDown} />
+              <button type="button" className="btn btn-outline-info" onClick={tableChild}>
+                  {toggleTableChild
+                   ? <FontAwesomeIcon icon={faChevronRight} />
+                   : <FontAwesomeIcon icon={faChevronDown} />}
+                </button>
                 <input className="form-check-input m-2" type="checkbox" value="" id="firstCheckbox" />
                 <label className="form-check-label m-1" htmlFor="firstCheckbox">
-                  <span>Hiện trạng hạ tầng viễn thông</span></label>
+                  <span>Hạ tầng báo chí xuất bản</span></label>
               </div>
               <table className="table table-striped text-left table-list">
                 <tbody>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Cột ăng ten</span></td>
-                    <td>
-                      <button type="button" className="btn btn-outline-primary btn-sm"
-                        onClick={props.isDTBottomOpen}
-                      >
-                        <FontAwesomeIcon icon={faTable} />
-                      </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Trạm BTS</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Điểm dịch vụ viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Doanh nghiệp viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
+                  {listItemGroup4_child}
                 </tbody>
               </table>
             </li>
             <li className="list-group-item">
               <div className='item-list'>
-                <FontAwesomeIcon icon={faChevronDown} />
+              <button type="button" className="btn btn-outline-info" onClick={tableChild}>
+                  {toggleTableChild
+                   ? <FontAwesomeIcon icon={faChevronRight} />
+                   : <FontAwesomeIcon icon={faChevronDown} />}
+                </button>
                 <input className="form-check-input m-2" type="checkbox" value="" id="firstCheckbox" />
                 <label className="form-check-label m-1" htmlFor="firstCheckbox">
-                  <span>Hiện trạng hạ tầng viễn thông</span></label>
+                  <span>QH HTVT Cấp Tỉnh</span></label>
               </div>
               <table className="table table-striped text-left table-list">
                 <tbody>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Cột ăng ten</span></td>
-                    <td>
-                      <button type="button" className="btn btn-outline-primary btn-sm"
-                        onClick={props.isDTBottomOpen}
-                      >
-                        <FontAwesomeIcon icon={faTable} />
-                      </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Trạm BTS</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Điểm dịch vụ viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Doanh nghiệp viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
+                  {listItemGroup5_child}
                 </tbody>
               </table>
             </li>
             <li className="list-group-item">
               <div className='item-list'>
-                <FontAwesomeIcon icon={faChevronDown} />
+              <button type="button" className="btn btn-outline-info" onClick={tableChild}>
+                  {toggleTableChild
+                   ? <FontAwesomeIcon icon={faChevronRight} />
+                   : <FontAwesomeIcon icon={faChevronDown} />}
+                </button>
                 <input className="form-check-input m-2" type="checkbox" value="" id="firstCheckbox" />
                 <label className="form-check-label m-1" htmlFor="firstCheckbox">
-                  <span>Hiện trạng hạ tầng viễn thông</span></label>
+                  <p>Thẩm định QH Angten Doanh Nghiệp</p></label>
               </div>
               <table className="table table-striped text-left table-list">
                 <tbody>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Cột ăng ten</span></td>
-                    <td>
-                      <button type="button" className="btn btn-outline-primary btn-sm"
-                        onClick={props.isDTBottomOpen}
-                      >
-                        <FontAwesomeIcon icon={faTable} />
-                      </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Trạm BTS</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Điểm dịch vụ viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Doanh nghiệp viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </li>
-            <li className="list-group-item">
-              <div className='item-list'>
-                <FontAwesomeIcon icon={faChevronDown} />
-                <input className="form-check-input m-2" type="checkbox" value="" id="firstCheckbox" />
-                <label className="form-check-label m-1" htmlFor="firstCheckbox">
-                  <span>Hiện trạng hạ tầng viễn thông</span></label>
-              </div>
-              <table className="table table-striped text-left table-list">
-                <tbody>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Cột ăng ten</span></td>
-                    <td>
-                      <button type="button" className="btn btn-outline-primary btn-sm"
-                        onClick={props.isDTBottomOpen}
-                      >
-                        <FontAwesomeIcon icon={faTable} />
-                      </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Trạm BTS</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Điểm dịch vụ viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input type='checkbox' /> <span>Doanh nghiệp viễn thông</span></td>
-                    <td><button type="button" className="btn btn-outline-primary btn-sm"
-                      onClick={props.isDTBottomOpen}
-                    >
-                      <FontAwesomeIcon icon={faTable} />
-                    </button>
-                      <button type="button" className="btn btn-outline-primary btn-sm m-1">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </td>
-                  </tr>
+                  {listItemGroup6_child}
                 </tbody>
               </table>
             </li>
@@ -474,8 +280,9 @@ const SideBarContent = (props) => {
             <button className="btn btn-outline-success me-1" type="submit"><FontAwesomeIcon icon={faFileExcel} /></button>
             <button className="btn btn-outline-success me-1" type="submit"><FontAwesomeIcon icon={faPrint} /></button>
           </div>
-          <h2>Ember</h2>
-          <p>Ember.js is a productive, battle-tested JavaScript framework for building modern web applications. It includes everything you need to build rich UIs that work on any device.</p>
+          <div>
+            <AttributeTab />
+          </div>
         </div>
         <div className={toggleState === 4 ? "tab-pane active" : "tab-pane"} >
           <h2>Vue.js</h2>

@@ -9,7 +9,7 @@ const DetailTableBottom = props => {
   return (
     <div className={detaiBottomClass}>
       <div> 
-        <DetailTable/>
+        <DetailTable />
       </div>
       <button onClick={props.toggleDetailBottom} className="bottom-toggle ">
       <FontAwesomeIcon icon={faRectangleXmark} />

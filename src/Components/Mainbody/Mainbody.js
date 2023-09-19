@@ -13,13 +13,28 @@ const MainBody = () => {
     const handleViewDetailBottomOpen = () => {
         setDetailBottomOpenOpen(!detailBottomOpen);
     };
+    const [addattribute, setAddattribute] = useState({});
+    const handleAddattribute = (prop) =>{
+        setAddattribute(prop);
+    }
     return (
         <>
-            <Sidebar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} isOpenDetailBottom={detailBottomOpen} toggleDetailBottom={handleViewDetailBottomOpen}/>
+            <Sidebar 
+                isOpen={sidebarOpen} 
+                toggleSidebar={handleViewSidebar} 
+                isOpenDetailBottom={detailBottomOpen} 
+                toggleDetailBottom={handleViewDetailBottomOpen}
+            />
             <div className='canvas-maps'>
                 <CanvasMaps/>
             </div>
-            <div><DetailTableBottom isOpenDetailBottom={detailBottomOpen} toggleDetailBottom={handleViewDetailBottomOpen} /></div>
+            <div>
+                <DetailTableBottom 
+                    isOpenDetailBottom={detailBottomOpen} 
+                    toggleDetailBottom={handleViewDetailBottomOpen} 
+                    addattributeData = {handleAddattribute}
+                />
+            </div>
         </>
     )
 }

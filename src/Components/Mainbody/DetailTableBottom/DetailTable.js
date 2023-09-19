@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import axios from '../../../config/axios';
 import './DetailTable.css'
 
-function DetailTable() {
+function DetailTable(props) {
     const [tableContents, setTableContents] = useState([]);
+    const [addattribute, setAddattribute] = useState({})
 
     axios
         .get("cotangten")
@@ -13,41 +14,49 @@ function DetailTable() {
         .catch(err => {
             throw err;
         })
+        
+    const addattributes = (e) =>{
+        const classview = e.target.className;
+        tableContents.map((props, index) => {
+            if(classview == index+1){
+                setAddattribute(props)
+            }
+        })
 
+    }
     const tbodys = tableContents.map((props, index) => {
         return (
-            <tr id={index} key={index} >
-                <td>{index+1}</td>
-
-                <td>{props.tendoituong}</td>
-                <td>{props.tendoituong}</td>
-                <td>{props.diachi}</td>
-                <td>{props.kinhdo}</td>
-                <td>{props.vido}</td>
-                <td>{props.donviquanly}</td>
-                <td>{props.chusohuucot}</td>
-                <td>{props.tenquanhuyen}</td>
-                <td>{props.loaicot}</td>
-                <td>{props.kieucot}</td>
-                <td>{props.chieucao}</td>
-                <td>{props.chieucaoct}</td>
-                <td>{props.khanangdungchung}</td>
-                <td>{props.doanhnghiepdungchung}</td>
-                <td>{props.ngayhoatdong}</td>
-                <td>{props.sogiaychungnhankiemdinh}</td>
-                <td>{props.diachigiaycnkiemdinh}</td>
-                <td>{props.chungloaithietbiphat}</td>
-                <td>{props.soantenphat}</td>
-                <td>{props.somayphat}</td>
-                <td>{props.tongcongsuatphattunganten}</td>
-                <td>{props.bangtanhoatdong}</td>
-                <td>{props.docaotunganten}</td>
-                <td>{props.gioihanantoan}</td>
-                <td>{props.chenhlechdocao}</td>
-                <td>{props.ngaycapgiaychungnhan}</td>
-                <td>{props.cogiatriden}</td>
-                <td>{props.tinhtranggcn}</td>
-                <td>{props.tailieu}</td>
+            <tr id={index} key={index} className='detailtable-row' onClick={(e) => addattributes(e)} >
+                <td className={index+1}>{index+1}</td>
+                <td className={index+1}>{props.tendoituong}</td>
+                <td className={index+1}>{props.tendoituong}</td>
+                <td className={index+1}>{props.diachi}</td>
+                <td className={index+1}>{props.kinhdo}</td>
+                <td className={index+1}>{props.vido}</td>
+                <td className={index+1}>{props.donviquanly}</td>
+                <td className={index+1}>{props.chusohuucot}</td>
+                <td className={index+1}>{props.tenquanhuyen}</td>
+                <td className={index+1}>{props.loaicot}</td>
+                <td className={index+1}>{props.kieucot}</td>
+                <td className={index+1}>{props.chieucao}</td>
+                <td className={index+1}>{props.chieucaoct}</td>
+                <td className={index+1}>{props.khanangdungchung}</td>
+                <td className={index+1}>{props.doanhnghiepdungchung}</td>
+                <td className={index+1}>{props.ngayhoatdong}</td>
+                <td className={index+1}>{props.sogiaychungnhankiemdinh}</td>
+                <td className={index+1}>{props.diachigiaycnkiemdinh}</td>
+                <td className={index+1}>{props.chungloaithietbiphat}</td>
+                <td className={index+1}>{props.soantenphat}</td>
+                <td className={index+1}>{props.somayphat}</td>
+                <td className={index+1}>{props.tongcongsuatphattunganten}</td>
+                <td className={index+1}>{props.bangtanhoatdong}</td>
+                <td className={index+1}>{props.docaotunganten}</td>
+                <td className={index+1}>{props.gioihanantoan}</td>
+                <td className={index+1}>{props.chenhlechdocao}</td>
+                <td className={index+1}>{props.ngaycapgiaychungnhan}</td>
+                <td className={index+1}>{props.cogiatriden}</td>
+                <td className={index+1}>{props.tinhtranggcn}</td>
+                <td className={index+1}>{props.tailieu}</td>
 
             </tr>
         )

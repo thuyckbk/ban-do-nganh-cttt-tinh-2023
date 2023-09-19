@@ -53,8 +53,12 @@
   font-size: 18px;
   height: 55px;
 }
-.table-list td{
-  border: none;
+.table-list{
+  display: none;
+}
+
+.table-list-open {
+  display: block;
 }
 
 .icon-attribute-tab{
@@ -63,6 +67,4 @@
   text-align: right;
 }
   
-.btn-bottom-active:active{
-  background-color: #0d6efd;
-}
+
